@@ -1,14 +1,12 @@
-package com.ecommerce.model;
+package com.ecommerce.entities;
 
 import jakarta.persistence.*;
-import jakarta.persistence.criteria.CriteriaBuilder;
 import lombok.Data;
 
-import java.util.Objects;
 @Data
 @Entity
 @Table(name= "Stock")
-public class Stock{
+public class StockEntity {
 
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)

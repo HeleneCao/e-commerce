@@ -1,13 +1,12 @@
-package com.ecommerce.model;
+package com.ecommerce.entities;
 
 import jakarta.persistence.*;
 import lombok.Data;
 
-import java.util.Objects;
 @Data
 @Entity
 @Table(name="Produit")
-public class Produit {
+public class ProduitEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

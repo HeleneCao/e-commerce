@@ -1,14 +1,14 @@
-package com.ecommerce.model;
+package com.ecommerce.entities;
 
 import jakarta.persistence.*;
 import lombok.Data;
-import java.util.ArrayList;
+
 import java.util.List;
 
 @Data
 @Entity
 @Table(name= "Utilisateur")
-public class Utilisateur {
+public class UtilisateurEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,5 +27,5 @@ public class Utilisateur {
     private String password;
 
     @OneToMany
-    private List<Commande>commandeList;
+    private List<CommandeEntity>commandeList;
 }

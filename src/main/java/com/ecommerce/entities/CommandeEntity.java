@@ -1,14 +1,14 @@
-package com.ecommerce.model;
+package com.ecommerce.entities;
 
 import jakarta.persistence.*;
 import lombok.Data;
 import java.util.Date;
 import java.util.List;
-import java.util.Objects;
+
 @Data
 @Entity
 @Table(name="Commande")
-public class Commande {
+public class CommandeEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,7 +23,7 @@ public class Commande {
     private String commentaire;
 
     @OneToMany
-    private List<LigneCommande> ligneCommandeList;
+    private List<LigneCommandeEntity> ligneCommandeEntityList;
 
 
 
