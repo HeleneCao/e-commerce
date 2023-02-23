@@ -1,34 +1,33 @@
 package com.ecommerce.entities;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.util.Date;
 import java.util.List;
 
 @Data
 @Entity
-@Table(name="Order")
+@Table(name="Order_entity")
 @AllArgsConstructor
 @NoArgsConstructor
 public class OrderEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "dateCommande")
-    private Date dateCommande;
-    @Column(name = "etatCommande")
-    private String etatCommande;
+    @Column(name = "orderDate")
+    private Date orderDate;
 
-    @Column(name = "commentaire")
-    private String commentaire;
+    @Column(name = "statusDate")
+    private String statusDate;
+
+    @Column(name = "comment")
+    private String comment;
 
     @OneToMany
-    private List<OrderLineEntity> ligneCommandeList;
+    private List<OrderLineEntity> orderLineEntityList;
+
 
 
 

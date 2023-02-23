@@ -10,17 +10,20 @@ import java.util.List;
 
 @Data
 @Entity
-@Table(name="Tag")
+@Table(name="Tag_entity")
 @AllArgsConstructor
 @NoArgsConstructor
 public class TagEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @ManyToMany(mappedBy = "Tags")
-    private List<ProductEntity> produits;
+    @Column(name = "value")
+    private String value;
+
+    @ManyToMany(mappedBy = "tagEntityList")
+    private List<ProductEntity> productEntityList;
+
 
 
 }

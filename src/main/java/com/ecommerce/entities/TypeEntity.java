@@ -7,17 +7,17 @@ import lombok.NoArgsConstructor;
 
 @Data
 @Entity
-@Table(name = "Type")
+@Table(name = "Type_entity")
 @AllArgsConstructor
 @NoArgsConstructor
 public class TypeEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     private Integer id;
 
-    @Column(name = "libellé")
-    private String libellé;
+    @Column(name = "title")
+    private String title;
 
 
 }

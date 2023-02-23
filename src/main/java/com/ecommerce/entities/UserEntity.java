@@ -1,38 +1,40 @@
 package com.ecommerce.entities;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+
+import lombok.*;
 
 import java.util.List;
 
+
 @Data
 @Entity
-@Table(name= "User")
+@Table(name= "User_entity")
 @AllArgsConstructor
 @NoArgsConstructor
 public class UserEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer Id;
+    private Long Id;
 
-    @Column(name ="nom")
-    private String nom;
 
-    @Column(name ="prénom")
-    private String prénom;
+    @Column(name = "firstName")
+    private String firstName;
 
-    @Column(name ="email")
+    @Column(name = "lastName")
+    private String lastName;
+
+    @Column(name = "email")
     private String email;
 
-    @Column(name ="password")
+    @Column(name = "password")
     private String password;
 
-   @ManyToOne
-   private RoleEntity role;
+    @ManyToOne
+    private RoleEntity roleEntity;
 
     @OneToMany
-    private List<OrderEntity>commandeList;
+    private List<OrderEntity> orderEntityList;
+
+
 }

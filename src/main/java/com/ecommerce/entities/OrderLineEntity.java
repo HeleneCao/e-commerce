@@ -9,20 +9,19 @@ import java.util.List;
 
 @Data
 @Entity
-@Table(name= "OrderLine")
+@Table(name= "OrderLine_entity")
 @AllArgsConstructor
 @NoArgsConstructor
 public class OrderLineEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name="nombre")
-    private Integer nombre;
+    @Column(name="number")
+    private Integer number;
 
-    @Column(name="prixUnité")
-    private float prixUnité;
+    @Column(name="unit_price")
+    private float unit_price;
 
 
 

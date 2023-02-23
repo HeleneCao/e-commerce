@@ -9,26 +9,27 @@ import java.util.List;
 
 @Data
 @Entity
-@Table(name="Product")
+@Table(name="Product_entity")
 @AllArgsConstructor
 @NoArgsConstructor
 public class ProductEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name="nom")
-    private String nom;
+    @Column(name="name")
+    private String name;
 
-    @Column(name="prix")
-    private float prix;
+    @Column(name="price")
+    private float price;
 
-    @Column(name="quantité")
-    private Integer quantité;
+    @Column(name="quantity")
+    private Integer quantity;
 
     @ManyToMany
-    private List<TagEntity> tagList;
+    private List<TagEntity> tagEntityList;
+
+
 
 
 }
