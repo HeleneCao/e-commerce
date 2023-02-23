@@ -1,14 +1,18 @@
 package com.ecommerce.entities;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.List;
 
 @Data
 @Entity
-@Table(name= "Utilisateur")
-public class UtilisateurEntity {
+@Table(name= "User")
+@AllArgsConstructor
+@NoArgsConstructor
+public class UserEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,10 +30,9 @@ public class UtilisateurEntity {
     @Column(name ="password")
     private String password;
 
-    @OneToOne
-    @Column(name ="id_role")
-    private RoleEntity role;
+   @ManyToOne
+   private RoleEntity role;
 
     @OneToMany
-    private List<CommandeEntity>commandeList;
+    private List<OrderEntity>commandeList;
 }

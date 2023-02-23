@@ -1,14 +1,18 @@
 package com.ecommerce.entities;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.List;
 
 @Data
 @Entity
-@Table(name="Produit")
-public class ProduitEntity {
+@Table(name="Product")
+@AllArgsConstructor
+@NoArgsConstructor
+public class ProductEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,10 +24,11 @@ public class ProduitEntity {
     @Column(name="prix")
     private float prix;
 
-    private Integer qantité;
+    @Column(name="quantité")
+    private Integer quantité;
 
     @ManyToMany
-    private List<CaracteristiqueEntity> caracteristiqueList;
+    private List<TagEntity> tagList;
 
 
 }

@@ -1,21 +1,26 @@
 package com.ecommerce.entities;
 
+
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Data
 @Entity
-@Table(name= "Role")
+@Table(name="Tag")
 @AllArgsConstructor
 @NoArgsConstructor
-public class RoleEntity {
+public class TagEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name="libellé")
-    private String libellé;
+    @ManyToMany(mappedBy = "Tags")
+    private List<ProductEntity> produits;
+
+
 }

@@ -1,11 +1,15 @@
 package com.ecommerce.entities;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @Entity
 @Table(name = "Type")
+@AllArgsConstructor
+@NoArgsConstructor
 public class TypeEntity {
 
     @Id

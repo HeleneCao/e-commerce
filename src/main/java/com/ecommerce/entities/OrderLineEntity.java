@@ -1,12 +1,18 @@
 package com.ecommerce.entities;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import java.util.List;
 
 @Data
 @Entity
-@Table(name= "LigneCommande")
-public class LigneCommandeEntity {
+@Table(name= "OrderLine")
+@AllArgsConstructor
+@NoArgsConstructor
+public class OrderLineEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,6 +23,7 @@ public class LigneCommandeEntity {
 
     @Column(name="prixUnité")
     private float prixUnité;
+
 
 
 }
