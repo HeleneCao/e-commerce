@@ -23,7 +23,7 @@ public class CommandeEntity {
     private String commentaire;
 
     @OneToMany
-    private List<LigneCommandeEntity> ligneCommandeEntityList;
+    private List<LigneCommandeEntity> ligneCommandeList;
 
 
 

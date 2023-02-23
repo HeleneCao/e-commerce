@@ -26,6 +26,10 @@ public class UtilisateurEntity {
     @Column(name ="password")
     private String password;
 
+    @OneToOne
+    @Column(name ="id_role")
+    private RoleEntity role;
+
     @OneToMany
     private List<CommandeEntity>commandeList;
 }
