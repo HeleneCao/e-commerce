@@ -15,7 +15,7 @@ import java.util.List;
 public class OrderLineEntity {
 
     @Id
-    private Integer id;
+    private Long id;
 
     @Column(name="number")
     private Integer number;

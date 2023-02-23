@@ -14,7 +14,7 @@ import java.util.List;
 public class OrderEntity {
 
     @Id
-    private Integer id;
+    private Long id;
 
     @Column(name = "orderDate")
     private Date orderDate;

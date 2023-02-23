@@ -16,7 +16,7 @@ import java.util.List;
 public class TagEntity {
 
     @Id
-    private Integer id;
+    private Long id;
 
     @Column(name = "value")
     private String value;

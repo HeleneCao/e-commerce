@@ -14,7 +14,7 @@ public class TypeEntity {
 
     @Id
 
-    private Integer id;
+    private Long id;
 
     @Column(name = "title")
     private String title;
