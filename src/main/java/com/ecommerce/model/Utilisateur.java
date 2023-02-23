@@ -1,16 +1,31 @@
 package com.ecommerce.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import lombok.Data;
+import java.util.ArrayList;
+import java.util.List;
 
+@Data
 @Entity
+@Table(name= "Utilisateur")
 public class Utilisateur {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer Id;
+
+    @Column(name ="nom")
     private String nom;
+
+    @Column(name ="prénom")
     private String prénom;
+
+    @Column(name ="email")
     private String email;
+
+    @Column(name ="password")
     private String password;
-    private String role;
+
+    @OneToMany
+    private List<Commande>commandeList;
 }

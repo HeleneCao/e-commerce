@@ -1,82 +1,30 @@
 package com.ecommerce.model;
 
 import jakarta.persistence.*;
-
+import lombok.Data;
 import java.util.Date;
+import java.util.List;
 import java.util.Objects;
-
+@Data
 @Entity
+@Table(name="Commande")
 public class Commande {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
+    @Column(name = "dateCommande")
     private Date dateCommande;
+    @Column(name = "etatCommande")
     private String etatCommande;
+
+    @Column(name = "commentaire")
     private String commentaire;
 
+    @OneToMany
+    private List<LigneCommande> ligneCommandeList;
 
-    public Commande() {
-    }
 
-    public Commande(Integer id, Date dateCommande, String etatCommande, String commentaire) {
-        this.id = id;
-        this.dateCommande = dateCommande;
-        this.etatCommande = etatCommande;
-        this.commentaire = commentaire;
-    }
 
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public Date getDateCommande() {
-        return dateCommande;
-    }
-
-    public void setDateCommande(Date dateCommande) {
-        this.dateCommande = dateCommande;
-    }
-
-    public String getEtatCommande() {
-        return etatCommande;
-    }
-
-    public void setEtatCommande(String etatCommande) {
-        this.etatCommande = etatCommande;
-    }
-
-    public String getCommentaire() {
-        return commentaire;
-    }
-
-    public void setCommentaire(String commentaire) {
-        this.commentaire = commentaire;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Commande commande = (Commande) o;
-        return Objects.equals(id, commande.id) && Objects.equals(dateCommande, commande.dateCommande) && Objects.equals(etatCommande, commande.etatCommande) && Objects.equals(commentaire, commande.commentaire);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, dateCommande, etatCommande, commentaire);
-    }
-
-    @Override
-    public String toString() {
-        return "Commande{" +
-                "id=" + id +
-                ", dateCommande=" + dateCommande +
-                ", etatCommande='" + etatCommande + '\'' +
-                ", commentaire='" + commentaire + '\'' +
-                '}';
-    }
 }
