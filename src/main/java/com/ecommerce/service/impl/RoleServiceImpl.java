@@ -1,6 +1,8 @@
 package com.ecommerce.service.impl;
 
 import com.ecommerce.dto.RoleDto;
+import com.ecommerce.dto.mapper.RoleMapper;
+import com.ecommerce.repository.RoleRepository;
 import com.ecommerce.service.RoleService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -12,6 +14,9 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 @Slf4j
 public class RoleServiceImpl implements RoleService {
+
+    private final RoleMapper roleMapper;
+    private final RoleRepository roleRepository;
     @Override
     public RoleDto save(RoleDto roleDto) {
         return null;

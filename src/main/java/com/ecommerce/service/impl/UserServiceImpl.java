@@ -1,6 +1,8 @@
 package com.ecommerce.service.impl;
 
 import com.ecommerce.dto.UserDto;
+import com.ecommerce.dto.mapper.UserMapper;
+import com.ecommerce.repository.UserRepository;
 import com.ecommerce.service.UserService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -12,6 +14,9 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 @Slf4j
 public class UserServiceImpl implements UserService {
+
+    private final UserMapper userMapper;
+    private final UserRepository userRepository;
     @Override
     public UserDto save(UserDto userDto) {
         return null;

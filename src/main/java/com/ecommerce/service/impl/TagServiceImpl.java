@@ -1,6 +1,8 @@
 package com.ecommerce.service.impl;
 
 import com.ecommerce.dto.TagDto;
+import com.ecommerce.dto.mapper.TagMapper;
+import com.ecommerce.repository.TagRepository;
 import com.ecommerce.service.TagService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -12,6 +14,9 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 @Slf4j
 public class TagServiceImpl implements TagService {
+
+    private final TagMapper tagMapper;
+    private final TagRepository tagRepository;
     @Override
     public TagDto save(TagDto tagDto) {
         return null;

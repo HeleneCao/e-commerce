@@ -1,6 +1,9 @@
 package com.ecommerce.service.impl;
 
 import com.ecommerce.dto.OrderLineDto;
+import com.ecommerce.dto.mapper.OrderLineMapper;
+import com.ecommerce.repository.OrderLineRepository;
+import com.ecommerce.repository.OrderRepository;
 import com.ecommerce.service.OrderLineService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -12,6 +15,9 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 @Slf4j
 public class OrderLineServiceImpl implements OrderLineService {
+
+    private final OrderLineMapper orderLineMapper;
+    private final OrderLineRepository orderLineRepository;
     @Override
     public OrderLineDto save(OrderLineDto OrderLineDto) {
         return null;

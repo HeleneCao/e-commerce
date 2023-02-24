@@ -1,6 +1,8 @@
 package com.ecommerce.service.impl;
 
 import com.ecommerce.dto.OrderDto;
+import com.ecommerce.dto.mapper.OrderMapper;
+import com.ecommerce.repository.OrderRepository;
 import com.ecommerce.service.OrderService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -12,6 +14,8 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 @Slf4j
 public class OrderServiceImpl implements OrderService {
+    private final OrderMapper orderMapper;
+    private final OrderRepository orderRepository;
     @Override
     public OrderDto save(OrderDto orderDto) {
         return null;
