@@ -1,4 +1,4 @@
-package com.ecommerce.entities;
+package com.ecommerce.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -7,17 +7,14 @@ import lombok.NoArgsConstructor;
 
 @Data
 @Entity
-@Table(name = "Type_entity")
+@Table(name= "Role_entity")
 @AllArgsConstructor
 @NoArgsConstructor
-public class TypeEntity {
+public class RoleEntity {
 
     @Id
-
     private Long id;
 
-    @Column(name = "title")
+    @Column(name="title")
     private String title;
-
-
 }

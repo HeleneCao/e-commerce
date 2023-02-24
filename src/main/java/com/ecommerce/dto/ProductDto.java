@@ -1,6 +1,6 @@
 package com.ecommerce.dto;
 
-import com.ecommerce.entities.TagEntity;
+import com.ecommerce.entity.TagEntity;
 import lombok.*;
 
 import java.util.List;

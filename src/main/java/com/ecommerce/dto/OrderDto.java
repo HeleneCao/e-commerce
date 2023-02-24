@@ -1,6 +1,6 @@
 package com.ecommerce.dto;
 
-import com.ecommerce.entities.OrderLineEntity;
+import com.ecommerce.entity.OrderLineEntity;
 import lombok.*;
 import java.util.Date;
 import java.util.List;

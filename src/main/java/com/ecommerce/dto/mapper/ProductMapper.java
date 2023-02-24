@@ -1,7 +1,7 @@
 package com.ecommerce.dto.mapper;
 
 import com.ecommerce.dto.ProductDto;
-import com.ecommerce.entities.ProductEntity;
+import com.ecommerce.entity.ProductEntity;
 import org.mapstruct.Mapper;
 import org.mapstruct.MappingTarget;
 import org.mapstruct.NullValuePropertyMappingStrategy;
