@@ -1,5 +1,6 @@
 package com.ecommerce.dto.mapper;
 
+import com.ecommerce.dto.OrderLineDto;
 import com.ecommerce.entities.OrderLineEntity;
 import org.mapstruct.Mapper;
 import org.mapstruct.MappingTarget;

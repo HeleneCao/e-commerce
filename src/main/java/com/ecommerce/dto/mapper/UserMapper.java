@@ -1,5 +1,6 @@
 package com.ecommerce.dto.mapper;
 
+import com.ecommerce.dto.UserDto;
 import com.ecommerce.entities.UserEntity;
 import org.mapstruct.Mapper;
 import org.mapstruct.MappingTarget;
