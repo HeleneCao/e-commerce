@@ -20,7 +20,7 @@ public class OrderLineController {
 
     @PostMapping("/Register")
     public ResponseEntity<OrderLineEntity> register(@RequestBody @Valid OrderLineEntity orderLineEntity){
-        log.debug("Registering user {}", orderLineEntity);
+        log.debug("Registering order line {}", orderLineEntity);
         return ResponseEntity.ok(orderLineService.save(orderLineEntity));
     }
 
@@ -38,7 +38,7 @@ public class OrderLineController {
 
     @PutMapping("/{id}")
     public ResponseEntity<OrderLineEntity> update(@PathVariable Long id, @RequestBody OrderLineEntity orderLineEntity) {
-        log.debug("Updating user {}", orderLineEntity);
+        log.debug("Updating order line {}", orderLineEntity);
         return ResponseEntity.ok(orderLineService.update(id, orderLineEntity));
     }
 

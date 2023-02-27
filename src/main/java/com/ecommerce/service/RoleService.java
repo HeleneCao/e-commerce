@@ -1,15 +1,19 @@
 package com.ecommerce.service;
 
 import com.ecommerce.dto.RoleDto;
+import com.ecommerce.entity.RoleEntity;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 
 public interface RoleService {
 
-    RoleDto save(RoleDto roleDto);
+    RoleEntity save(RoleEntity roleEntity);
 
-    RoleDto findById(Long id);
+    RoleEntity findById(Long id);
 
     void deleteById(Long id);
 
-    RoleDto update(Long id, RoleDto roleDto);
+
+    Page<RoleEntity> findAll(Pageable pageable);
 }

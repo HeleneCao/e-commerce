@@ -1,15 +1,21 @@
 package com.ecommerce.service;
 
 import com.ecommerce.dto.ProductDto;
+import com.ecommerce.entity.ProductEntity;
+import com.ecommerce.entity.UserEntity;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 
 public interface ProductService {
 
-    ProductDto save(ProductDto productDto);
+    ProductEntity save(ProductEntity productEntity);
 
-    ProductDto findById(Long id);
+    ProductEntity findById(Long id);
 
     void deleteById(Long id);
 
-    ProductDto update(Long id, ProductDto productDto);
+    ProductEntity update(Long id, ProductEntity productEntity);
+
+    Page<ProductEntity> findAll(Pageable pageable);
 }

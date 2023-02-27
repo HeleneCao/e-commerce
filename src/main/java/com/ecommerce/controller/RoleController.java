@@ -1,9 +1,9 @@
 package com.ecommerce.controller;
 
+import com.ecommerce.entity.RoleEntity;
 import com.ecommerce.entity.TypeEntity;
-import com.ecommerce.entity.UserEntity;
 import com.ecommerce.exception.NotFoundException;
-import com.ecommerce.service.TypeService;
+import com.ecommerce.service.RoleService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -13,29 +13,26 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/api/type")
+@RequestMapping("/api/role")
 @Slf4j
-public class TypeController {
+public class RoleController {
 
-
-   private final TypeService typeService;
+    private final RoleService roleService;
 
     @PostMapping("/register")
-    public ResponseEntity<TypeEntity> register(@RequestBody @Valid TypeEntity typeEntity) {
-        log.debug("Registering type {}", typeEntity);
-        return ResponseEntity.ok(typeService.save(typeEntity));
+    public ResponseEntity<RoleEntity> register(@RequestBody @Valid RoleEntity roleEntity) {
+        log.debug("Registering role {}", roleEntity);
+        return ResponseEntity.ok(roleService.save(roleEntity));
     }
-
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteById(@PathVariable Long id) {
-        log.debug("Deleting type by id {}", id);
-        typeService.deleteById(id);
+        log.debug("Deleting role by id {}", id);
+        roleService.deleteById(id);
         try {
-            typeService.findById(id);
+            roleService.findById(id);
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         } catch (NotFoundException ex) {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
@@ -43,14 +40,9 @@ public class TypeController {
     }
 
     @GetMapping("/all")
-    public ResponseEntity<Page<TypeEntity>> findAllWithPagination(Pageable pageable) {
+    public ResponseEntity<Page<RoleEntity>> findAllWithPagination(Pageable pageable) {
         log.debug("Finding all type");
-        return ResponseEntity.ok(typeService.findAll(pageable));
+        return ResponseEntity.ok(roleService.findAll(pageable));
     }
-
-
-
-
-
 
 }
