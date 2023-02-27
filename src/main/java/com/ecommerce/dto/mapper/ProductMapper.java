@@ -11,7 +11,7 @@ public interface ProductMapper {
 
     ProductDto toProductDto(ProductEntity productEntity);
 
-    ProductEntity toProduct(ProductDto productDto);
+    ProductEntity toProductEntity(ProductDto productDto);
 
     ProductEntity toProduct(ProductDto productDto, @MappingTarget ProductEntity productEntity);
 

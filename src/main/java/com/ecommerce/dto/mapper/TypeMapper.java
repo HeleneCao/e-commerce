@@ -11,7 +11,7 @@ public interface TypeMapper {
 
     TypeDto toTypeDto(TypeEntity typeEntity);
 
-    TypeEntity toType(TypeDto typeDto);
+    TypeEntity toTypeEntity(TypeDto typeDto);
 
     TypeEntity toType(TypeDto typeDto, @MappingTarget TypeEntity typeEntity);
 }

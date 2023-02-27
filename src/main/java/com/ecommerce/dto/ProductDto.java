@@ -1,9 +1,10 @@
 package com.ecommerce.dto;
 
-import com.ecommerce.entity.TagEntity;
+import com.ecommerce.entities.TagEntity;
 import lombok.*;
 
 import java.util.List;
+
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -12,12 +13,11 @@ import java.util.List;
 @Builder
 public class ProductDto {
 
-
     private Long id;
-
     private String name;
-
     private float price;
     private Integer quantity;
-    private List<TagEntity> tagEntityList;
+    private List<TagDto> tagDtoList;
+
+
 }

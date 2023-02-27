@@ -1,5 +1,6 @@
 package com.ecommerce.dto;
 
+
 import lombok.*;
 
 @AllArgsConstructor
@@ -8,6 +9,8 @@ import lombok.*;
 @Setter
 @Builder
 public class TypeDto {
+
     private Long id;
     private String title;
+
 }

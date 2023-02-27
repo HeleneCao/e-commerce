@@ -11,7 +11,7 @@ import java.util.Optional;
 @Mapper(componentModel = "spring", uses = {OrderMapper.class}, nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
 public interface UserMapper  {
 
-    UserDto toUserDto(Optional<UserEntity> userEntity);
+    UserDto toUserDto(UserEntity userEntity);
 
     UserEntity toUserEntity(UserDto userDto);
 

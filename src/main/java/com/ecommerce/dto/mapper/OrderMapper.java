@@ -11,7 +11,7 @@ public interface OrderMapper {
 
     OrderDto toOrderDto(OrderEntity orderEntity);
 
-    OrderEntity toOrder(OrderDto orderDto);
+    OrderEntity toOrderEntity(OrderDto orderDto);
 
     OrderEntity toOrder(OrderDto orderDto, @MappingTarget OrderEntity orderEntity);
 }

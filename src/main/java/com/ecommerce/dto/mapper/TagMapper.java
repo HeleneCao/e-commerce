@@ -11,7 +11,7 @@ public interface TagMapper {
 
     TagDto toTagDto(TagEntity tagEntity);
 
-    TagEntity toTag(TagDto tagDto);
+    TagEntity toTagEntity(TagDto tagDto);
 
     TagEntity toTag(TagDto tagDto, @MappingTarget TagEntity tagEntity);
 }

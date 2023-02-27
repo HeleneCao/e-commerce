@@ -12,7 +12,7 @@ public interface RoleMapper {
 
     RoleDto toRoleDto(RoleEntity roleEntity);
 
-    RoleEntity toRole(RoleDto roleDto);
+    RoleEntity toRoleEntity(RoleDto roleDto);
 
     RoleEntity toRole(RoleDto roleDto, @MappingTarget RoleEntity roleEntity);
 }

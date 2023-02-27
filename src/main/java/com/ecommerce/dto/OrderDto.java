@@ -1,9 +1,10 @@
 package com.ecommerce.dto;
 
-import com.ecommerce.entity.OrderLineEntity;
 import lombok.*;
+
 import java.util.Date;
 import java.util.List;
+
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -16,5 +17,6 @@ public class OrderDto {
     private Date orderDate;
     private String statusDate;
     private String comment;
-    private List<OrderLineEntity> orderLineEntityList;
+    private List<OrderLineDto> orderLineDtoList;
+
 }

@@ -1,5 +1,6 @@
 package com.ecommerce.dto;
 
+
 import lombok.*;
 
 @AllArgsConstructor
@@ -10,6 +11,5 @@ import lombok.*;
 public class RoleDto {
 
     private Long id;
-
     private String title;
 }

@@ -11,7 +11,7 @@ public interface OrderLineMapper {
 
     OrderLineDto toOrderLineDto(OrderLineEntity orderLineEntity);
 
-    OrderLineEntity toOrderLine(OrderLineDto orderLineDto);
+    OrderLineEntity toOrderLineEntity(OrderLineDto orderLineDto);
 
     OrderLineEntity toOrderLine(OrderLineDto orderLineDto, @MappingTarget OrderLineEntity orderLineEntity);
 }
