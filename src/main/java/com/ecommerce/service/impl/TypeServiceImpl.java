@@ -1,14 +1,13 @@
 package com.ecommerce.service.impl;
 
-import com.ecommerce.dto.TypeDto;
-import com.ecommerce.dto.mapper.TypeMapper;
 import com.ecommerce.entity.TypeEntity;
-import com.ecommerce.entity.UserEntity;
 import com.ecommerce.exception.NotFoundException;
 import com.ecommerce.repository.TypeRepository;
 import com.ecommerce.service.TypeService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -20,21 +19,19 @@ import java.util.Optional;
 @Slf4j
 public class TypeServiceImpl implements TypeService {
 
-    private final TypeMapper typeMapper;
-
     private final TypeRepository typeRepository;
     @Override
-    public TypeDto save(TypeDto typeDto) {
-        log.debug("Saving type {}", typeDto);
-        TypeEntity type = typeMapper.toTypeEntity(typeDto);
-        return typeMapper.toTypeDto(typeRepository.save(type));
+    public TypeEntity save(TypeEntity typeEntity) {
+        log.debug("Saving type {}", typeEntity);
+        return typeRepository.save(typeEntity);
     }
 
+
     @Override
-    public TypeDto findById(Long id) {
+    public TypeEntity findById(Long id) {
         log.debug("Finding type by id {}", id);
         Optional<TypeEntity> type = typeRepository.findById(id);
-        return typeMapper.toTypeDto(type.orElseThrow(() -> new NotFoundException("Type not found")));
+        return type.orElseThrow(() -> new NotFoundException("Type not found"));
     }
 
     @Override
@@ -48,11 +45,17 @@ public class TypeServiceImpl implements TypeService {
     }
 
     @Override
-    public TypeDto update(Long id, TypeDto typeDto) {
-        log.debug("Updating type {}", typeDto);
+    public Page<TypeEntity> findAll(Pageable pageable) {
+        return typeRepository.findAll(pageable);
+    }
+
+
+    @Override
+    public TypeEntity update(Long id, TypeEntity typeEntity) {
+        log.debug("Updating type {}", typeEntity);
         TypeEntity typeOptional = typeRepository.findById(id)
                 .orElseThrow(() -> new NotFoundException("error.type.notFound"));
-        TypeEntity type = typeMapper.toType(typeDto, typeOptional);
-        return typeMapper.toTypeDto(typeRepository.save(type));
+        typeOptional.setTitle(typeEntity.getTitle());
+        return typeRepository.save(typeOptional);
     }
 }

@@ -1,6 +1,6 @@
 package com.ecommerce.dto;
 
-import com.ecommerce.entities.ProductEntity;
+
 import lombok.*;
 
 

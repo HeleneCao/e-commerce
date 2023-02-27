@@ -1,19 +1,22 @@
 package com.ecommerce.service;
 
 import com.ecommerce.dto.UserDto;
+import com.ecommerce.entity.UserEntity;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
 public interface UserService {
-    UserDto save(UserDto userDto);
 
-    UserDto findByEmail(String email);
 
-    UserDto findById(Long id);
+    UserEntity save(UserEntity userEntity);
+
+    UserEntity findByEmail(String email);
+
+    UserEntity findById(Long id);
 
     void deleteById(Long id);
 
-    Page<UserDto> findAll(Pageable pageable);
+    Page<UserEntity> findAll(Pageable pageable);
 
-    UserDto update(Long id, UserDto userDto);
+    UserEntity update(Long id, UserEntity userEntity);
 }

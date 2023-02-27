@@ -1,9 +1,7 @@
 package com.ecommerce.service.impl;
 
-import com.ecommerce.dto.TagDto;
-import com.ecommerce.dto.mapper.TagMapper;
+
 import com.ecommerce.entity.TagEntity;
-import com.ecommerce.entity.TypeEntity;
 import com.ecommerce.exception.NotFoundException;
 import com.ecommerce.repository.TagRepository;
 import com.ecommerce.service.TagService;
@@ -20,20 +18,20 @@ import java.util.Optional;
 @Slf4j
 public class TagServiceImpl implements TagService {
 
-    private final TagMapper tagMapper;
     private final TagRepository tagRepository;
+
+
     @Override
-    public TagDto save(TagDto tagDto) {
-        log.debug("Saving tag {}", tagDto);
-        TagEntity tag = tagMapper.toTagEntity(tagDto);
-        return tagMapper.toTagDto(tagRepository.save(tag));
+    public TagEntity save(TagEntity tagEntity) {
+        log.debug("Saving tag {}", tagEntity);
+        return tagRepository.save(tagEntity);
     }
 
     @Override
-    public TagDto findById(Long id) {
+    public TagEntity findById(Long id) {
         log.debug("Finding tag by id {}", id);
         Optional<TagEntity> tag = tagRepository.findById(id);
-        return tagMapper.toTagDto(tag.orElseThrow(() -> new NotFoundException("Tag not found")));
+        return tag.orElseThrow(() -> new NotFoundException("Tag not found"));
     }
 
     @Override
@@ -46,12 +44,4 @@ public class TagServiceImpl implements TagService {
         tagRepository.deleteById(id);
     }
 
-    @Override
-    public TagDto update(Long id, TagDto tagDto) {
-        log.debug("Updating tag {}", tagDto);
-        TagEntity tagOptional = tagRepository.findById(id)
-                .orElseThrow(() -> new NotFoundException("error.tag.notFound"));
-        TagEntity tag = tagMapper.toTag(tagDto, tagOptional);
-        return tagMapper.toTagDto(tagRepository.save(tag));
-    }
 }

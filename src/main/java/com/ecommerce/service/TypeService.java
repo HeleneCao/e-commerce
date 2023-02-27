@@ -1,16 +1,22 @@
 package com.ecommerce.service;
 
 import com.ecommerce.dto.TypeDto;
+import com.ecommerce.entity.TypeEntity;
+import com.ecommerce.entity.UserEntity;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 import java.lang.reflect.Type;
 
 public interface TypeService {
 
-    TypeDto save(TypeDto typeDto);
+    TypeEntity save(TypeEntity typeEntity);
 
-    TypeDto findById(Long id);
+    TypeEntity findById(Long id);
 
     void deleteById(Long id);
 
-    TypeDto update(Long id, TypeDto typeDto);
+    Page<TypeEntity> findAll(Pageable pageable);
+
+    TypeEntity update(Long id, TypeEntity typeEntity);
 }

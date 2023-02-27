@@ -1,6 +1,6 @@
 package com.ecommerce.controller;
 
-import com.ecommerce.dto.UserDto;
+import com.ecommerce.entity.UserEntity;
 import com.ecommerce.exception.NotFoundException;
 import com.ecommerce.service.UserService;
 import jakarta.validation.Valid;
@@ -21,9 +21,9 @@ public class UserController {
     private final UserService userService;
 
     @PostMapping("/register")
-    public ResponseEntity<UserDto> register(@RequestBody @Valid UserDto userDto) {
-        log.debug("Registering user {}", userDto);
-        return ResponseEntity.ok(userService.save(userDto));
+    public ResponseEntity<UserEntity> register(@RequestBody @Valid UserEntity userEntity) {
+        log.debug("Registering user {}", userEntity);
+        return ResponseEntity.ok(userService.save(userEntity));
     }
 
     @DeleteMapping("/{id}")
@@ -39,15 +39,15 @@ public class UserController {
     }
 
     @GetMapping("/all")
-    public ResponseEntity<Page<UserDto>> findAllWithPagination(Pageable pageable) {
+    public ResponseEntity<Page<UserEntity>> findAllWithPagination(Pageable pageable) {
         log.debug("Finding all users");
         return ResponseEntity.ok(userService.findAll(pageable));
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<UserDto> update(@PathVariable Long id, @RequestBody UserDto userDto) {
-        log.debug("Updating user {}", userDto);
-        return ResponseEntity.ok(userService.update(id, userDto));
+    public ResponseEntity<UserEntity> update(@PathVariable Long id, @RequestBody UserEntity userEntity) {
+        log.debug("Updating user {}", userEntity);
+        return ResponseEntity.ok(userService.update(id, userEntity));
     }
 
 

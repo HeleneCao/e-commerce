@@ -1,7 +1,7 @@
 package com.ecommerce.service.impl;
 
-import com.ecommerce.dto.UserDto;
-import com.ecommerce.dto.mapper.UserMapper;
+
+
 import com.ecommerce.entity.UserEntity;
 import com.ecommerce.exception.NotFoundException;
 import com.ecommerce.repository.UserRepository;
@@ -21,26 +21,26 @@ import java.util.Optional;
 @Slf4j
 public class UserServiceImpl implements UserService {
 
-    private final UserMapper userMapper;
     private final UserRepository userRepository;
+
+
     @Override
-    public UserDto save(UserDto userDto) {
-        log.debug("Saving user {}", userDto);
-        UserEntity user = userMapper.toUserEntity(userDto);
-        return userMapper.toUserDto(userRepository.save(user));
+    public UserEntity save(UserEntity userEntity) {
+        log.debug("Saving user {}", userEntity);
+        return userRepository.save(userEntity);
     }
 
     @Override
-    public UserDto findByEmail(String email) {
+    public UserEntity findByEmail(String email) {
         log.debug("Finding user by email {}", email);
-        return userMapper.toUserDto(userRepository.findByEmail(email));
+        return userRepository.findByEmail(email);
     }
 
     @Override
-    public UserDto findById(Long id) {
+    public UserEntity findById(Long id) {
         log.debug("Finding user by id {}", id);
         Optional<UserEntity> user = userRepository.findById(id);
-        return userMapper.toUserDto(user.orElseThrow(() -> new NotFoundException("User not found")));
+        return user.orElseThrow(() -> new NotFoundException("User not found"));
     }
 
     @Override
@@ -55,16 +55,20 @@ public class UserServiceImpl implements UserService {
 
 
     @Override
-    public Page<UserDto> findAll(Pageable pageable) {
-        return userRepository.findAll(pageable).map(userMapper::toUserDto);
+    public Page<UserEntity> findAll(Pageable pageable) {
+        return userRepository.findAll(pageable);
     }
 
     @Override
-    public UserDto update(Long id, UserDto userDto) {
-        log.debug("Updating user {}", userDto);
+    public UserEntity update(Long id, UserEntity userEntity) {
+        log.debug("Updating user {}", userEntity);
         UserEntity userOptional = userRepository.findById(id)
                 .orElseThrow(() -> new NotFoundException("error.user.notFound"));
-        UserEntity user = userMapper.toUserEntity(userDto, userOptional);
-        return userMapper.toUserDto(userRepository.save(user));
+            userOptional.setFirstName(userEntity.getFirstName());
+        userOptional.setLastName(userEntity.getLastName());
+        userOptional.setEmail(userEntity.getEmail());
+        userOptional.setPassword(userEntity.getPassword());
+        userOptional.setRoleEntity(userEntity.getRoleEntity());
+        return userRepository.save(userOptional);
     }
 }
