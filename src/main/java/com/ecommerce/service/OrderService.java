@@ -1,15 +1,20 @@
 package com.ecommerce.service;
 
-import com.ecommerce.dto.OrderDto;
+
+import com.ecommerce.entity.OrderEntity;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 
 public interface OrderService {
 
-    OrderDto save(OrderDto orderDto);
+    OrderEntity save(OrderEntity orderEntity);
 
-    OrderDto findById(Long id);
+    OrderEntity findById(Long id);
 
     void deleteById(Long id);
 
-    OrderDto update(Long id, OrderDto orderDto);
+    OrderEntity update(Long id, OrderEntity orderEntity);
+
+    Page<OrderEntity> findAll(Pageable pageable);
 }

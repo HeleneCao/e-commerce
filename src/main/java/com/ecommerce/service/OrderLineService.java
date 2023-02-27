@@ -1,14 +1,18 @@
 package com.ecommerce.service;
 
 import com.ecommerce.dto.OrderLineDto;
+import com.ecommerce.entity.OrderLineEntity;
+
 
 public interface OrderLineService {
 
-    OrderLineDto save(OrderLineDto OrderLineDto);
+    OrderLineEntity save(OrderLineEntity orderLineEntity);
 
-    OrderLineDto findById(Long id);
+    OrderLineEntity findById(Long id);
 
     void deleteById(Long id);
 
-    OrderLineDto update(Long id, OrderLineDto orderLineDto);
+    OrderLineEntity update(Long id, OrderLineEntity orderLineEntity);
+
+
 }
